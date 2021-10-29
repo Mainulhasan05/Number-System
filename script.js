@@ -102,7 +102,14 @@ function deciToN(){
     }
 
 }
-
+function reset(){
+    const deci=document.getElementById('deci');
+    const base=document.getElementById('base');
+    const output=document.getElementById('output');
+    deci.value='';
+    base.value='';
+    output.innerText='Output will be shown here...'
+}
 // tostbar function
 function myFunction() {
     var x = document.getElementById("snackbar");
