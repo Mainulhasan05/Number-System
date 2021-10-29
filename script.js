@@ -38,7 +38,7 @@ function binary(){
         }
     }
     if(valid){
-        deci.value='dsd'/2;
+        deci.value=-1;
     }
     else{
         deci.value=parseInt(myArr[0], 2); 
@@ -70,7 +70,7 @@ function binary(){
             deci.value=Number(deci.value)+Number(sum);
         
         }else{
-            deci.value='dfd'/3;
+            deci.value=-1;
         }
 
     }
