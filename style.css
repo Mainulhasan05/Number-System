@@ -16,7 +16,18 @@
 }
 .btncontainer{
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
 }
+.reset{
+    border:none ;
+    text-align: center;
+    background-color: white;
+
+}
+
 
 /* toast code starts here 
 toast id would be snackbar*/
