@@ -9,6 +9,7 @@
 .box{
     box-shadow: 10px 10px 40px lightgray;
     padding: 20px;
+    padding-top:5px ;
 }
 #convert{
     text-align: center;
