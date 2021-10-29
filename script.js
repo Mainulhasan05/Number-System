@@ -15,6 +15,8 @@ function decimal(){
     binary.value=value;
     octal.value=ocValue;
     hexadecimal.value=hexValue.toString().toUpperCase();
+    // const valu=82;
+    // console.log(valu.toString(5));
 
 }
 
@@ -85,3 +87,25 @@ function binary(){
     
 
 }
+
+function deciToN(){
+    const deci=document.getElementById('deci').value;
+    const base=document.getElementById('base').value;
+    const output=document.getElementById('output');
+    if(deci=='' ||base==''){
+        myFunction();
+    }
+    else{
+        let out=Number(deci).toString(parseInt(base));
+        output.innerText="Answer is:    "+String(out).toUpperCase();
+        
+    }
+
+}
+
+// tostbar function
+function myFunction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
