@@ -55,6 +55,26 @@
   </div>
 <div id="snackbar">Please fill both Decimal and Base field...</div>
 
+  <div class="container box">
+    <h3 class="header">Get Two's Complement</h3>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">#Input decimal</label>
+      <input onkeyup="decimal2()" type="number" class="form-control" id="twoscomplement">
+      <label for="exampleFormControlInput1" class="form-label">#Length</label>
+      <input onkeyup="decimal2()"  id="length" type="number" value="0" class="form-control" placeholder="length" aria-label="Server">
+    </div>
+    <div class="left">
+      <p class='right'>Binary number: </p>
+      <p class='right'>Signed number: 1111111</p>
+      <p class='right'>1's complement:  00000000</p>
+      <p class='right'>                       +1</p>
+      <hr>
+      <p class='right'>2's complement:    01001001</p>
+    </div>
+
+
+  </div>
    <script src="script.js"></script>
 </body>
 </html>

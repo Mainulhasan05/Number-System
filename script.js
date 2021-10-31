@@ -20,6 +20,86 @@ function decimal(){
 
 }
 
+function decimal2(){
+    const deci=document.getElementById('twoscomplement');
+    const length=document.getElementById('length');
+    let len=Number(length.value);
+    const x=Number(deci.value);
+    let value=x.toString(2);
+    if(len!=0){
+        if(value[0]=='-'){
+            value=Number(value)*-1;
+            value=String(value);
+            let strlen=value.length;
+            len=len-strlen;
+            let zeros=''
+            for (let index = 0; index < len; index++) {
+                zeros=zeros+'0';
+                
+            }
+            value=zeros+value;
+        }
+
+    }
+    let signed=value;
+    if(value[0]=='-'){
+        // signed.shift();
+        // signed=signed.split();
+        // signed.unshift('1');
+        signed=signed.replace('-','1');
+        // signed='1'+signed;
+    }else{
+        // signed=signed.split();
+        signed='0'+signed;
+        // signed.unshift('0');
+    }
+    let ones='';
+    for (let index = 0; index < signed.length; index++) {
+        if(signed[index]=='0'){
+            ones+='1';
+        }
+        else if(signed[index]=='1'){
+            ones+='0';
+        }else{
+            ones+=signed[index];
+        }
+        
+    }
+    const makeDeci=changeBinary(ones)+1;
+    let twos=makeDeci.toString(2);
+    
+    const arr=document.querySelectorAll('.right');
+    arr[0].innerText=`Binary number: ${value}`;
+    arr[1].innerText=`Signed number: ${signed}`;
+    arr[2].innerText=`1's complement: ${ones}`;
+    arr[4].innerText=`2's complement: ${twos}`;
+}
+
+function changeBinary(x){//receive string
+
+
+    let myArr=x.split('.');   
+    let size=myArr[0].length;
+    let text=String(myArr[0]);
+
+        let ans=parseInt(myArr[0], 2); 
+
+   
+    if(myArr.length>1){
+        let p=myArr[1];
+        let sz=String(p).length;
+
+            let sum=0;
+            p=String(p);
+            for(let i=sz; i>=1;i--){
+                sum=sum+parseFloat(p[i-1])/Math.pow(2,i); 
+            }
+            sum=parseFloat(sum);
+            return Number(ans)+Number(sum);
+    }
+    return ans;
+}
+
 function binary(){
     const deci=document.getElementById('decimal');
     const binary=document.getElementById('binary');

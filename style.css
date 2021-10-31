@@ -7,7 +7,7 @@
     margin: 10px;
 }
 .box{
-    box-shadow: 10px 10px 40px lightgray;
+    box-shadow: 10px 10px 20px lightgray;
     padding: 20px;
     padding-top:5px ;
 }
@@ -22,6 +22,14 @@
     justify-content: space-between;
 
 }
+.left{
+  text-align: right;
+  width: 50%;
+  font-size: 20px;
+  font-family: monospace;
+
+}
+
 .reset{
     border:none ;
     text-align: center;
