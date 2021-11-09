@@ -36,6 +36,7 @@
       
    </div>
 <br>
+
    <div class="container box">
     <h3 class="header">Conversion from decimal to base-n</h3>
 
@@ -54,7 +55,7 @@
     
   </div>
 <div id="snackbar">Please fill both Decimal and Base field...</div>
-
+<br>
   <div class="container box">
     <h3 class="header">Get Two's Complement</h3>
 
@@ -73,8 +74,33 @@
       <p class='right'>2's complement:    </p>
     </div>
 
-
   </div>
+  <br>
+
+
+  <!-- Decimal to BCD , BCD to Decimal -->
+  <div class="container box">
+    <h3 class="header ">Decimal <=> BCD</h3>
+    <hr>
+    <div class="mb-3 ">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter Decimal</label>
+        <input onkeyup="deciToBCD()" type="number" class="form-control" id="deciToBCD" rows="3"></input>
+      </div>
+      <div class="mb-3">
+        <form id="cpa-form">
+
+        
+        <label for="exampleFormControlInput1" class="form-label">BCD (Binary Codded Decimal)</label>
+        <input autocomplete='off'  type="text" class="form-control" id="BCD" required=true>
+        <button onclick="bcdToDeci()" style="text-align: center; margin-left: 30vw;" class="btn btn-primary">BCD->Decimal</button>
+      </form>
+      </div>
+
+
+      
+   </div>
+
+
    <script src="script.js"></script>
 </body>
 </html>

@@ -219,3 +219,75 @@ function myFunction() {
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
+
+//   Deci to BCD
+
+function deciToBCD(){
+    var x = document.getElementById("deciToBCD");
+    var y = document.getElementById("BCD");
+    let value=x.value;//
+    let len=value.length;
+    let bcd='';
+    for (let index = len-1; index >=0; index--) {
+        let pk=Number(value[index]).toString(2)
+        let haha=pk.length;
+        let str='';
+        while(haha<4){
+            str+='0';
+            haha++;
+        }
+        bcd=str+pk+' '+bcd;       
+    }
+    y.value=bcd;
+
+}
+
+function bcdToDeci(){
+    var x = document.getElementById("deciToBCD");
+    var y = document.getElementById("BCD");
+    let value=y.value;
+    // value=value.trim();
+    value=value.replaceAll(' ','');
+    let len=value.length;
+    let validity=true;
+    for (let index = 0; index < len; index++) {
+       if(value[index]=='0' ||value[index]=='1'){
+
+       }else{
+           validity=false;
+       }
+        
+    }
+
+    if(validity){
+        let zeros='';
+        while(value.length%4!=0){
+            value='0'+value;
+        }
+        let flag=0;
+        let ans='';
+        for (let index = value.length-1; index >0; index=index-4){
+            let tt=value[index-3]+value[index-2]+value[index-1]+value[index];
+            if(parseInt(tt,2)>9){
+                flag=1;
+                alert("Invalid BCD: "+tt+`  Maximum BCD: 1001`);
+                break;
+            }
+            ans=parseInt(tt,2)+ans;
+            
+        }
+        if(!flag){
+            x.value=Number(ans);
+        }
+
+}
+}
+
+var form = document.getElementById('cpa-form');
+
+// Adds a listener for the "submit" event.
+form.addEventListener('submit', function(e) {
+
+  e.preventDefault();
+
+});
