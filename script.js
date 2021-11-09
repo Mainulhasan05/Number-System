@@ -26,53 +26,76 @@ function decimal2(){
     let len=Number(length.value);
     const x=Number(deci.value);
     let value=x.toString(2);
-    if(len!=0){
-        if(value[0]=='-'){
-            value=Number(value)*-1;
-            value=String(value);
-            let strlen=value.length;
-            len=len-strlen;
-            let zeros=''
-            for (let index = 0; index < len; index++) {
-                zeros=zeros+'0';
-                
+    console.log(len)
+    console.log(value.length);
+    let store=value;
+    let changeInZero=false;
+    if(value.length<len){
+        let loop=len-value.length-1;
+        let z='';
+        for (let index = 0; index <loop ; index++) {
+            z+='0';
+            
+        }
+        value=z+value;
+        changeInZero=true;
+        console.log("after adding length  "+value);
+    }
+    if(Number(value)>=0){
+        if(len!=0){
+            if(value[0]=='-'){
+                value=Number(value)*-1;
+                value=String(value);
+                let strlen=value.length;
+                len=len-strlen;
+                let zeros=''
+                for (let index = 0; index < len; index++) {
+                    zeros=zeros+'0';
+                    
+                }
+                value=zeros+value;
             }
-            value=zeros+value;
+    
         }
-
-    }
-    let signed=value;
-    if(value[0]=='-'){
-        // signed.shift();
-        // signed=signed.split();
-        // signed.unshift('1');
-        signed=signed.replace('-','1');
-        // signed='1'+signed;
-    }else{
-        // signed=signed.split();
-        signed='0'+signed;
-        // signed.unshift('0');
-    }
-    let ones='';
-    for (let index = 0; index < signed.length; index++) {
-        if(signed[index]=='0'){
-            ones+='1';
-        }
-        else if(signed[index]=='1'){
-            ones+='0';
+        let signed=value;
+        if(value[0]=='-'){
+            // signed.shift();
+            // signed=signed.split();
+            // signed.unshift('1');
+            signed=signed.replace('-','1');
+            // signed='1'+signed;
         }else{
-            ones+=signed[index];
+            // signed=signed.split();
+            signed='0'+signed;
+            // signed.unshift('0');
+        }
+        let ones='';
+        for (let index = 0; index < signed.length; index++) {
+            if(signed[index]=='0'){
+                ones+='1';
+            }
+            else if(signed[index]=='1'){
+                ones+='0';
+            }else{
+                ones+=signed[index];
+            }
+            
+        }
+        const makeDeci=changeBinary(ones)+1;
+        let twos=makeDeci.toString(2);
+        
+        const arr=document.querySelectorAll('.right');
+        if(changeInZero){
+            arr[0].innerText=`Binary number: ${store}`;
+        }else{
+            arr[0].innerText=`Binary number: ${value}`;
         }
         
+        arr[1].innerText=`Signed number: ${signed}`;
+        arr[2].innerText=`1's complement: ${ones}`;
+        arr[4].innerText=`2's complement: ${twos}`;
     }
-    const makeDeci=changeBinary(ones)+1;
-    let twos=makeDeci.toString(2);
     
-    const arr=document.querySelectorAll('.right');
-    arr[0].innerText=`Binary number: ${value}`;
-    arr[1].innerText=`Signed number: ${signed}`;
-    arr[2].innerText=`1's complement: ${ones}`;
-    arr[4].innerText=`2's complement: ${twos}`;
 }
 
 function changeBinary(x){//receive string
