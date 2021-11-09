@@ -25,6 +25,7 @@ function decimal2(){
     const length=document.getElementById('length');
     let len=Number(length.value);
     const x=Number(deci.value);
+    let ppp=x;
     let value=x.toString(2);
     console.log(len)
     console.log(value.length);
@@ -93,7 +94,7 @@ function decimal2(){
         
         arr[1].innerText=`Signed number: ${signed}`;
         arr[2].innerText=`1's complement: ${ones}`;
-        arr[4].innerText=`2's complement: ${twos}`;
+        arr[4].innerText=`2's complement: ${twos}      =-${ppp}`;
     }
     
 }
